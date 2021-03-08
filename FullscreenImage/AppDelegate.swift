@@ -1,7 +1,4 @@
 //
-//  AppDelegate.swift
-//  FullscreenImage
-//
 //  Created by Maciej Gorecki on 06/03/2021.
 //
 

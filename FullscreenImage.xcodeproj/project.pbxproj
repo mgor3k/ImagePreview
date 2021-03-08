@@ -22,9 +22,7 @@
 		BF59A41025F3DCD300C0DBCA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59A40F25F3DCD300C0DBCA /* CollectionViewCell.swift */; };
 		BF7A96CA25F45BE900359A07 /* ZoomedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A96C925F45BE900359A07 /* ZoomedImageViewController.swift */; };
 		BF7A96D625F4ED3900359A07 /* ZoomedImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A96D525F4ED3900359A07 /* ZoomedImageTransition.swift */; };
-		BFA4C63625F3DFFC0062E99C /* ImageZoomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4C63525F3DFFC0062E99C /* ImageZoomer.swift */; };
 		BFA4C63925F3E4490062E99C /* UIView+Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4C63825F3E4490062E99C /* UIView+Pop.swift */; };
-		BFA4C63E25F3EAA30062E99C /* ImageZoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4C63D25F3EAA30062E99C /* ImageZoomPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +43,7 @@
 		BF59A40F25F3DCD300C0DBCA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BF7A96C925F45BE900359A07 /* ZoomedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageViewController.swift; sourceTree = "<group>"; };
 		BF7A96D525F4ED3900359A07 /* ZoomedImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageTransition.swift; sourceTree = "<group>"; };
-		BFA4C63525F3DFFC0062E99C /* ImageZoomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomer.swift; sourceTree = "<group>"; };
 		BFA4C63825F3E4490062E99C /* UIView+Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pop.swift"; sourceTree = "<group>"; };
-		BFA4C63D25F3EAA30062E99C /* ImageZoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +113,6 @@
 		BF4FBCEA25F3D68D009AE0E8 /* FullscreenImage */ = {
 			isa = PBXGroup;
 			children = (
-				BFA4C63C25F3EA9A0062E99C /* ImageZoomer */,
 				BF4FBCEB25F3D68D009AE0E8 /* AppDelegate.swift */,
 				BF4FBCED25F3D68D009AE0E8 /* SceneDelegate.swift */,
 				BF7A96C825F45BCF00359A07 /* ZoomedImage */,
@@ -156,15 +151,6 @@
 				BF7A96C925F45BE900359A07 /* ZoomedImageViewController.swift */,
 			);
 			path = ZoomedImage;
-			sourceTree = "<group>";
-		};
-		BFA4C63C25F3EA9A0062E99C /* ImageZoomer */ = {
-			isa = PBXGroup;
-			children = (
-				BFA4C63525F3DFFC0062E99C /* ImageZoomer.swift */,
-				BFA4C63D25F3EAA30062E99C /* ImageZoomPresenter.swift */,
-			);
-			path = ImageZoomer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,10 +230,8 @@
 				BF4CBBDC25F3DA20008C6358 /* NSLayoutConstraint+Snap.swift in Sources */,
 				BF4FBCF025F3D68D009AE0E8 /* GridViewController.swift in Sources */,
 				BF4CBBE325F3DB00008C6358 /* ViewController.swift in Sources */,
-				BFA4C63625F3DFFC0062E99C /* ImageZoomer.swift in Sources */,
 				BF4CBBE925F3DC26008C6358 /* GridCell.swift in Sources */,
 				BF4FBCEC25F3D68D009AE0E8 /* AppDelegate.swift in Sources */,
-				BFA4C63E25F3EAA30062E99C /* ImageZoomPresenter.swift in Sources */,
 				BF4FBCEE25F3D68D009AE0E8 /* SceneDelegate.swift in Sources */,
 				BF4CBBE625F3DBF9008C6358 /* UICollectionView+Dequeue.swift in Sources */,
 				BFA4C63925F3E4490062E99C /* UIView+Pop.swift in Sources */,
@@ -391,6 +375,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TLQ6C265H;
 				INFOPLIST_FILE = FullscreenImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -409,6 +394,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3TLQ6C265H;
 				INFOPLIST_FILE = FullscreenImage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
