@@ -7,9 +7,7 @@ import UIKit
 class GridViewController: ViewController, ZoomImageAnimationOrigin {
     private let collectionView = FlowLayoutCollectionView()
     private let viewModel: GridViewModel
-    
-    private var zoomer: ImageZoomer?
-    
+        
     weak var presentingOriginImageView: UIImageView?
     var presentingOriginFrame: CGRect?
     
@@ -40,6 +38,22 @@ private extension GridViewController {
         view.addSubview(collectionView)
         NSLayoutConstraint.snapView(collectionView, to: view)
     }
+    
+    func zoomImage(fromCell cell: GridCell) {
+        let imageView = cell.imageView
+        guard let image = imageView.image else {
+            return
+        }
+        
+        cell.isZoomed = true
+        
+        presentingOriginImageView = imageView
+        presentingOriginFrame = imageView.convert(imageView.frame, to: nil)
+        
+        let vc = ZoomedImageViewController(image: image)
+        vc.completion = { [weak cell] in cell?.isZoomed = false }
+        present(vc, animated: true)
+    }
 }
 
 extension GridViewController: UICollectionViewDataSource {
@@ -64,13 +78,8 @@ extension GridViewController: UICollectionViewDelegate {
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? GridCell {
-//            zoomer = ImageZoomer(ofImageView: cell.imageView)
-//            zoomer?.show(on: UIApplication.shared.keyWindow!)
-            presentingOriginImageView = cell.imageView
-            presentingOriginFrame = cell.imageView.convert(cell.imageView.frame, to: nil)
-            present(ZoomedImageViewController(image: cell.imageView.image!), animated: true)
+            zoomImage(fromCell: cell)
         }
-        
     }
 }
 

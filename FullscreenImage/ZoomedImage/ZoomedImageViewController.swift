@@ -8,6 +8,8 @@ class ZoomedImageViewController: ViewController, ZoomImageAnimationTarget {
     let background = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     let imageView = UIImageView()
     
+    var completion: (() -> Void)?
+    
     init(image: UIImage) {
         super.init()
         modalPresentationStyle = .overFullScreen
@@ -17,6 +19,11 @@ class ZoomedImageViewController: ViewController, ZoomImageAnimationTarget {
     override func loadView() {
         super.loadView()
         setup()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        completion?()
     }
 }
 
