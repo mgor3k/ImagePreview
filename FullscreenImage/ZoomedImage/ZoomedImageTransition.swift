@@ -9,11 +9,6 @@ protocol ZoomImageAnimationOrigin: UIViewController {
     var presentingOriginFrame: CGRect? { get }
 }
 
-protocol ZoomImageAnimationTarget: UIViewController {
-    var imageView: UIImageView { get }
-    var background: UIVisualEffectView { get }
-}
-
 class ZoomedImageTransition: NSObject {
     enum TransitionType {
         case presenting, dismissing
@@ -76,8 +71,9 @@ extension ZoomedImageTransition: UIViewControllerAnimatedTransitioning {
         
         animatingVC.beginAppearanceTransition(true, animated: true)
         
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 1, options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction]) {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [.curveEaseOut, .beginFromCurrentState, .allowUserInteraction]) {
             copyImageView.frame = targetFrame
+            copyImageView.layer.cornerRadius = self.isPresenting ? 0 : 16
             copyBackground.alpha = self.isPresenting ? 1 : 0
             
         } completion: { [unowned self] _ in
@@ -106,6 +102,8 @@ private extension ZoomedImageTransition {
         let copyImageView = UIImageView()
         copyImageView.image = imageView.image
         copyImageView.contentMode = .scaleAspectFit
+        copyImageView.layer.cornerRadius = isPresenting ? 16 : 0
+        copyImageView.clipsToBounds = true
         copyImageView.frame = isPresenting ? imageView.convert(imageView.frame, to: nil) : imageView.frame
         return copyImageView
     }
@@ -124,8 +122,8 @@ private extension ZoomedImageTransition {
     }
     
     func getTargetController(
-        from transitionContext: UIViewControllerContextTransitioning) -> ZoomImageAnimationTarget? {
+        from transitionContext: UIViewControllerContextTransitioning) -> ZoomedImageViewController? {
         let vc = transitionContext.viewController(forKey: isPresenting ? .to : .from)
-        return vc as? ZoomImageAnimationTarget
+        return vc as? ZoomedImageViewController
     }
 }

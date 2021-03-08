@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ZoomedImageViewController: ViewController, ZoomImageAnimationTarget {
+class ZoomedImageViewController: ViewController {
     let background = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     let imageView = UIImageView()
     
@@ -50,10 +50,16 @@ private extension ZoomedImageViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let image = imageView.image
+        let ratio = image!.size.width / image!.size.height
+        let newHeight = UIScreen.main.bounds.width / ratio
+        
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: newHeight)
         ])
     }
     

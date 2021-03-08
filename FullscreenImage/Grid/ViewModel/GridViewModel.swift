@@ -13,9 +13,9 @@ class GridViewModel {
     
     init() {
         items = [
-            .init(imageUrl: "cat"),
-            .init(imageUrl: "dog"),
-            .init(imageUrl: "cafe")
+            .init(imageUrl: "1"),
+            .init(imageUrl: "2"),
+            .init(imageUrl: "3")
         ]
     }
     

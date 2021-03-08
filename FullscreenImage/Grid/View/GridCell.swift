@@ -15,9 +15,10 @@ class GridCell: CollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+
         setupImageView()
         setupOverlay()
+        setupShadow()
     }
     
     func setImage(_ image: UIImage) {
@@ -38,10 +39,20 @@ private extension GridCell {
     
     func setupOverlay() {
         overlayView.translatesAutoresizingMaskIntoConstraints = false
-        overlayView.backgroundColor = .lightGray
+        overlayView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        overlayView.layer.cornerRadius = 16
+        overlayView.clipsToBounds = true
         overlayView.isHidden = true
         
         contentView.addSubview(overlayView)
         NSLayoutConstraint.snapView(overlayView, to: imageView)
+    }
+    
+    func setupShadow() {
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 15
+        layer.shadowOffset = .init(width: 10, height: 10)
+        layer.masksToBounds = false
+        layer.shadowOpacity = 0.3
     }
 }

@@ -29,7 +29,7 @@ private extension GridViewController {
     func setupCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .white
-        collectionView.contentInset = .init(top: 36, left: 16, bottom: 36, right: 16)
+        collectionView.contentInset = .init(top: 36, left: 24, bottom: 36, right: 24)
         
         collectionView.registerCell(ofType: GridCell.self)
         collectionView.dataSource = self
@@ -86,11 +86,11 @@ extension GridViewController: UICollectionViewDelegate {
 extension GridViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let insets = collectionView.contentInset.left + collectionView.contentInset.right
-        let width = (collectionView.frame.width - insets) / 2
-        return .init(width: width - 8, height: 250)
+        let width = ((collectionView.frame.width - insets) / 2) - 16
+        return .init(width: width, height: width * 1.25)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        16
+        24
     }
 }
