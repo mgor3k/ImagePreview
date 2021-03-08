@@ -22,7 +22,7 @@
 		BF59A41025F3DCD300C0DBCA /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59A40F25F3DCD300C0DBCA /* CollectionViewCell.swift */; };
 		BF7A96CA25F45BE900359A07 /* ZoomedImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A96C925F45BE900359A07 /* ZoomedImageViewController.swift */; };
 		BF7A96D225F4C89200359A07 /* ZoomedImageAnimationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A96D125F4C89200359A07 /* ZoomedImageAnimationPresenter.swift */; };
-		BF7A96D625F4ED3900359A07 /* ZoomedImageAnimationDismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A96D525F4ED3900359A07 /* ZoomedImageAnimationDismisser.swift */; };
+		BF7A96D625F4ED3900359A07 /* ZoomedImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7A96D525F4ED3900359A07 /* ZoomedImageTransition.swift */; };
 		BFA4C63625F3DFFC0062E99C /* ImageZoomer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4C63525F3DFFC0062E99C /* ImageZoomer.swift */; };
 		BFA4C63925F3E4490062E99C /* UIView+Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4C63825F3E4490062E99C /* UIView+Pop.swift */; };
 		BFA4C63E25F3EAA30062E99C /* ImageZoomPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA4C63D25F3EAA30062E99C /* ImageZoomPresenter.swift */; };
@@ -46,7 +46,7 @@
 		BF59A40F25F3DCD300C0DBCA /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BF7A96C925F45BE900359A07 /* ZoomedImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageViewController.swift; sourceTree = "<group>"; };
 		BF7A96D125F4C89200359A07 /* ZoomedImageAnimationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageAnimationPresenter.swift; sourceTree = "<group>"; };
-		BF7A96D525F4ED3900359A07 /* ZoomedImageAnimationDismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageAnimationDismisser.swift; sourceTree = "<group>"; };
+		BF7A96D525F4ED3900359A07 /* ZoomedImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomedImageTransition.swift; sourceTree = "<group>"; };
 		BFA4C63525F3DFFC0062E99C /* ImageZoomer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageZoomer.swift; sourceTree = "<group>"; };
 		BFA4C63825F3E4490062E99C /* UIView+Pop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Pop.swift"; sourceTree = "<group>"; };
 		BFA4C63D25F3EAA30062E99C /* ImageZoomPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomPresenter.swift; sourceTree = "<group>"; };
@@ -154,6 +154,7 @@
 		BF7A96C825F45BCF00359A07 /* ZoomedImage */ = {
 			isa = PBXGroup;
 			children = (
+				BF7A96D525F4ED3900359A07 /* ZoomedImageTransition.swift */,
 				BF7A96CF25F4608F00359A07 /* Transitions */,
 				BF7A96C925F45BE900359A07 /* ZoomedImageViewController.swift */,
 			);
@@ -164,7 +165,6 @@
 			isa = PBXGroup;
 			children = (
 				BF7A96D125F4C89200359A07 /* ZoomedImageAnimationPresenter.swift */,
-				BF7A96D525F4ED3900359A07 /* ZoomedImageAnimationDismisser.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			files = (
 				BF7A96CA25F45BE900359A07 /* ZoomedImageViewController.swift in Sources */,
 				BF4CBBE025F3DAAA008C6358 /* FlowLayoutCollectionView.swift in Sources */,
-				BF7A96D625F4ED3900359A07 /* ZoomedImageAnimationDismisser.swift in Sources */,
+				BF7A96D625F4ED3900359A07 /* ZoomedImageTransition.swift in Sources */,
 				BF7A96D225F4C89200359A07 /* ZoomedImageAnimationPresenter.swift in Sources */,
 				BF4CBBD725F3D9F7008C6358 /* GridViewModel.swift in Sources */,
 				BF4CBBEF25F3DC69008C6358 /* GridItem.swift in Sources */,

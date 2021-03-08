@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ZoomedImageViewController: ViewController {
+class ZoomedImageViewController: ViewController, ZoomImageAnimationTarget {
     let background = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
     let imageView = UIImageView()
     
@@ -88,9 +88,9 @@ extension ZoomedImageViewController: UIViewControllerTransitioningDelegate {
         forPresented presented: UIViewController,
         presenting: UIViewController,
         source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        ZoomedImageAnimationPresenter()
+        ZoomedImageTransition(type: .presenting)
     }
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        ZoomedImageAnimationDismisser(type: .dismissing)
+        ZoomedImageTransition(type: .dismissing)
     }
 }
