@@ -80,12 +80,10 @@ private extension ZoomedImageViewController {
         translation = CGPoint(x: imageView.center.x + translation.x, y: imageView.center.y + translation.y)
         imageView.center = translation
         
-        // translation.y is currently between 0 (top) and 1 (bottom), we need to translate it to become 1 in the middle of the screen, to lower the alpha in both directions
         var result = (translation.y / view.frame.height) / 0.5
         result = result > 1 ? result - 1 : 1 - result
         background.alpha = 1 - result
         
-        // divide the result for slower transform
         imageView.transform = .init(scaleX: 1 - (result / 2), y: 1 - (result / 2))
         
         gesture.setTranslation(.zero, in: nil)
