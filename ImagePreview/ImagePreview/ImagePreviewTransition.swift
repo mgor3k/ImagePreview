@@ -4,12 +4,12 @@
 
 import UIKit
 
-protocol ZoomImageAnimationOrigin: UIViewController {
+protocol ImagePreviewAnimationOrigin: UIViewController {
     var presentingOriginImageView: UIImageView? { get }
     var presentingOriginFrame: CGRect? { get }
 }
 
-class ZoomedImageTransition: NSObject {
+class ImagePreviewTransition: NSObject {
     enum TransitionType {
         case presenting, dismissing
     }
@@ -25,7 +25,7 @@ class ZoomedImageTransition: NSObject {
     }
 }
 
-extension ZoomedImageTransition: UIViewControllerAnimatedTransitioning {
+extension ImagePreviewTransition: UIViewControllerAnimatedTransitioning {
     func transitionDuration(
         using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         0.5
@@ -35,11 +35,11 @@ extension ZoomedImageTransition: UIViewControllerAnimatedTransitioning {
         let containerView = transitionContext.containerView
         
         guard let origin = getOriginViewController(from: transitionContext) else {
-            return assertionFailure("Origin controller doesn't conform to ZoomImageAnimationOrigin")
+            return assertionFailure("Origin controller doesn't conform to ImagePreviewAnimationOrigin")
         }
         
         guard let target = getTargetController(from: transitionContext) else {
-            return assertionFailure("Origin controller doesn't conform to ZoomImageAnimationTarget")
+            return assertionFailure("Origin controller doesn't conform to ImagePreviewAnimationTarget")
         }
         
         let imageView = isPresenting ?
@@ -91,7 +91,7 @@ extension ZoomedImageTransition: UIViewControllerAnimatedTransitioning {
     }
 }
 
-private extension ZoomedImageTransition {
+private extension ImagePreviewTransition {
     func makeBackgroundFor(_ view: UIView) -> UIView {
         let background = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -109,12 +109,12 @@ private extension ZoomedImageTransition {
     }
     
     func getOriginViewController(
-        from transitionContext: UIViewControllerContextTransitioning) -> ZoomImageAnimationOrigin? {
+        from transitionContext: UIViewControllerContextTransitioning) -> ImagePreviewAnimationOrigin? {
         let vc = transitionContext.viewController(forKey: isPresenting ? .from : .to)
         
-        if let vc = vc as? ZoomImageAnimationOrigin {
+        if let vc = vc as? ImagePreviewAnimationOrigin {
             return vc
-        }else if let vc = (vc as? UINavigationController)?.children.last as? ZoomImageAnimationOrigin {
+        }else if let vc = (vc as? UINavigationController)?.children.last as? ImagePreviewAnimationOrigin {
             return vc
         }
         
@@ -122,8 +122,8 @@ private extension ZoomedImageTransition {
     }
     
     func getTargetController(
-        from transitionContext: UIViewControllerContextTransitioning) -> ZoomedImageViewController? {
+        from transitionContext: UIViewControllerContextTransitioning) -> ImagePreviewViewController? {
         let vc = transitionContext.viewController(forKey: isPresenting ? .to : .from)
-        return vc as? ZoomedImageViewController
+        return vc as? ImagePreviewViewController
     }
 }
